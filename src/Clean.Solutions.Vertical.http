@@ -1,0 +1,19 @@
+
+
+POST {{HostAddress}}/api/todo
+Content-Type: application/json
+{
+  "subject": "Ragnarok X",
+  "content": "Tank Priest"
+}
+
+###
+
+GET {{HostAddress}}/api/todo
+Content-Type: application/json
+Accept: application/json
+{
+    "id": "abd943e3-44a1-44b2-9a99-b50a507ee1ba"
+}
+
+###
