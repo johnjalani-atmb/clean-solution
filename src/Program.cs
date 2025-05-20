@@ -8,6 +8,7 @@ using FluentValidation.AspNetCore;
 using MediatR;
 using MediatR.Pipeline;
 using Microsoft.EntityFrameworkCore;
+using Scalar.AspNetCore;
 using Serilog;
 
 namespace Clean.Solutions.Vertical;
@@ -65,8 +66,11 @@ public class Program
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
         {
-            app.UseSwagger();
-            app.UseSwaggerUI();
+            app.UseSwagger(options =>
+            {
+                options.RouteTemplate = "/openapi/{documentName}.json";
+            });
+            app.MapScalarApiReference();
         }
 
         app.MapCarter();
